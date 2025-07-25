@@ -4,7 +4,6 @@ services:  # 定义服务列表
     image: evil0ctal/douyin_tiktok_download_api  # 使用的 Docker 镜像
     build:
         context: .
-    network_mode: host  # 使用主机网络模式
     container_name: douyin_tiktok_download_api  # 容器名称
     restart: always  # 容器退出后总是重启
     ports:

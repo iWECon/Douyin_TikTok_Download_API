@@ -12,10 +12,6 @@ WORKDIR /app
 # 复制应用代码到容器
 COPY . /app
 
-# 使用 Aliyun 镜像源加速 pip
-RUN pip install -i https://mirrors.aliyun.com/pypi/simple/ -U pip \
-    && pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
-
 # 安装依赖
 RUN pip install --no-cache-dir -r requirements.txt
 

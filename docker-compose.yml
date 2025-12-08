@@ -1,22 +1,22 @@
-
-services:  # 定义服务列表
-  backend:  # 服务名称
-    image: evil0ctal/douyin_tiktok_download_api  # 使用的 Docker 镜像
+services: # 定义服务列表
+  backend: # 服务名称
+    image: evil0ctal/douyin_tiktok_download_api # 使用的 Docker 镜像
     build:
-        context: .
-    container_name: douyin_tiktok_download_api  # 容器名称
-    restart: always  # 容器退出后总是重启
+      context: .
+    container_name: douyin_tiktok_download_api # 容器名称
+    restart: always # 容器退出后总是重启
     ports:
-        - 8999:80
-    environment:  # 环境变量配置
-      TZ: Asia/Shanghai  # 设置时区为亚洲/上海
-      PUID: 1026  # 设置容器内部的用户 ID
-      PGID: 100  # 设置容器内部的用户组 ID
-    privileged: true  # 设置特权模式以便容器内部可以执行特权操作
+      - 8999:80
+    environment: # 环境变量配置
+      TZ: Asia/Shanghai # 设置时区为亚洲/上海
+      PUID: 1026 # 设置容器内部的用户 ID
+      PGID: 100 # 设置容器内部的用户组 ID
+    privileged: true # 设置特权模式以便容器内部可以执行特权操作
 
   nginx:
     image: nginx:alpine
     container_name: nginx
+    restart: always
     ports:
       - "10001:80"
     volumes:
